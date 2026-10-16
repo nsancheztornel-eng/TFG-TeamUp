@@ -1,0 +1,914 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Team Up — Plataforma Unificada de Proyectos, Talento y Comunicación</title>
+
+  <!-- Tipografía moderna e Iconos FontAwesome -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+  <link rel="stylesheet" href="styles.css">
+  <script src="/socket.io/socket.io.js"></script>
+</head>
+
+<body>
+
+  <!-- Barra lateral / Navegación principal -->
+  <aside class="side">
+    <div class="brand">
+      <span class="logo">
+        <i class="fa-solid fa-shapes"></i>
+      </span>
+      <div class="brand-info">
+        <b>Team Up</b>
+        <small>Plataforma Unificada</small>
+      </div>
+    </div>
+
+    <nav id="nav" class="nav-menu">
+      <a href="#inicio" data-page="inicio" class="active"><i class="fa-solid fa-house"></i> Inicio</a>
+      <a href="#red" data-page="red"><i class="fa-solid fa-user-plus"></i> Red & Talento</a>
+      <a href="#tareas" data-page="tareas"><i class="fa-solid fa-table-columns"></i> Gestión de Tareas</a>
+      <a href="#canales" data-page="canales"><i class="fa-solid fa-headset"></i> Canales y Voz</a>
+      <a href="#flujo" data-page="flujo"><i class="fa-solid fa-diagram-project"></i> Flujo de Trabajo</a>
+    </nav>
+
+    <div class="side-foot">
+      <span><i class="fa-solid fa-graduation-cap"></i> TFG · DAW2</span>
+      <small>IES Miguel Hernández · 2026</small>
+    </div>
+  </aside>
+
+  <!-- Contenido Principal -->
+  <main class="main-content">
+
+    <!-- Encabezado superior / Topbar -->
+    <header class="top-bar">
+      <div class="search-box">
+        <i class="fa-solid fa-magnifying-glass"></i>
+        <input type="text" id="globalSearchInput" placeholder="Buscar talentos, tareas o canales...">
+      </div>
+      <div class="top-actions">
+        <button class="btn btn-secondary btn-sm" id="btnQuickTalent" title="Añadir Talento"><i class="fa-solid fa-user-plus"></i> Añadir Persona</button>
+        <button class="btn btn-primary btn-sm" id="btnQuickTask" title="Crear Tarea"><i class="fa-solid fa-plus"></i> Nueva Tarea</button>
+      </div>
+    </header>
+
+    <!-- ==================== SECCIÓN: INICIO ==================== -->
+    <section id="inicio" class="page-view is-active" data-page="inicio">
+      <div class="hero-card">
+        <div class="hero-text">
+          <span class="badge"><i class="fa-solid fa-rocket"></i> Ecosistema Colaborativo Integral</span>
+          <h1>Gestiona equipos, capacita talento y colabora sin fronteras</h1>
+          <p>Team Up elimina la dispersión de herramientas combinando en una sola plataforma: selección y contacto de talento especializado estilo LinkedIn, organización ágil de tareas con calendario y línea de avance temporal dinámica, comunicación en tiempo real estilo Discord con canales de voz/vídeo/chat, y trazabilidad total del flujo de trabajo.</p>
+
+          <div class="hero-buttons">
+            <a href="#red" class="btn btn-primary"><i class="fa-solid fa-users"></i> Explorar Red & Talento</a>
+            <a href="#tareas" class="btn btn-secondary"><i class="fa-solid fa-table-columns"></i> Gestión de Tareas</a>
+            <a href="#canales" class="btn btn-secondary"><i class="fa-solid fa-headset"></i> Canales y Voz</a>
+            <a href="#flujo" class="btn btn-secondary"><i class="fa-solid fa-diagram-project"></i> Ver Flujo de Trabajo</a>
+          </div>
+        </div>
+
+        <div class="stats-grid">
+          <a href="#red" class="stat-box">
+            <i class="fa-solid fa-id-card"></i>
+            <h3 id="statTalentsCount">5 Talentos</h3>
+            <p>Networking y perfiles técnicos</p>
+          </a>
+          <a href="#tareas" class="stat-box">
+            <i class="fa-solid fa-list-check"></i>
+            <h3 id="statTasksCount">5 Tareas Activas</h3>
+            <p>Kanban y cronograma temporal</p>
+          </a>
+          <a href="#canales" class="stat-box">
+            <i class="fa-solid fa-comments"></i>
+            <h3 id="statServersCount">3 Servidores</h3>
+            <p>Salas de voz, vídeo y chat</p>
+          </a>
+          <a href="#flujo" class="stat-box">
+            <i class="fa-solid fa-chart-line"></i>
+            <h3 id="statProgressPct">60% Completado</h3>
+            <p>Flujo y auditoría en tiempo real</p>
+          </a>
+        </div>
+      </div>
+
+      <!-- DESCRIPCIÓN EXHAUSTIVA DE CADA SECCIÓN -->
+      <div class="section-header">
+        <div>
+          <h2>Estructura y Módulos de Team Up</h2>
+          <p>Detalle completo de cada sección de la plataforma, explicando su propósito, herramientas y funcionamiento:</p>
+        </div>
+      </div>
+
+      <div class="section-guide-grid">
+        <!-- GUÍA RED Y TALENTO -->
+        <article class="guide-card talent-card">
+          <div class="guide-head">
+            <div class="icon-header talent-icon">
+              <i class="fa-solid fa-user-gear"></i>
+            </div>
+            <div>
+              <h3>Red & Talento</h3>
+              <span class="guide-tag"><i class="fa-brands fa-linkedin"></i> Networking & Reclutamiento de Equipos</span>
+            </div>
+          </div>
+          <p class="guide-desc">
+            Espacio dedicado a conectar creadores de proyectos con colaboradores y profesionales afines. Permite dar de alta perfiles profesionales completos con su biografía, especialidad técnica, disponibilidad y enlaces a portafolios. Los integrantes pueden buscar perfiles mediante filtros de capacidades técnicas y enviar solicitudes formales de contacto y colaboración en un solo clic, con seguimiento del estado de cada invitación.
+          </p>
+          <ul class="guide-features">
+            <li><i class="fa-solid fa-check text-green"></i> <b>Perfiles Profesionales:</b> Registro detallado con nombre, bio, habilidades y disponibilidad.</li>
+            <li><i class="fa-solid fa-check text-green"></i> <b>Filtros Técnicos:</b> Búsqueda semántica por Frontend, Backend, UI/UX, Cloud y DevOps.</li>
+            <li><i class="fa-solid fa-check text-green"></i> <b>Solicitudes de Contacto:</b> Envío directo de invitaciones personalizadas con tracking de estado.</li>
+          </ul>
+          <div class="guide-actions">
+            <a href="#red" class="btn btn-primary btn-sm"><i class="fa-solid fa-arrow-right"></i> Ir a Red & Talento</a>
+            <button class="btn btn-secondary btn-sm" onclick="openModal('modalAddTalent')"><i class="fa-solid fa-plus"></i> Añadir Persona</button>
+          </div>
+        </article>
+
+        <!-- GUÍA GESTIÓN DE TAREAS -->
+        <article class="guide-card tasks-card">
+          <div class="guide-head">
+            <div class="icon-header kanban-icon">
+              <i class="fa-solid fa-chart-kanban"></i>
+            </div>
+            <div>
+              <h3>Gestión de Tareas</h3>
+              <span class="guide-tag"><i class="fa-solid fa-calendar-check"></i> Kanban & Cronograma con Avance Temporal</span>
+            </div>
+          </div>
+          <p class="guide-desc">
+            Sistema ágil de planificación de trabajo que unifica tableros Kanban interactivos con un cronograma tipo calendario. Permite crear tareas especificando nombre, descripción, responsable asignado y rango de fechas con horas de inicio y límite. Incorpora un motor de <b>línea de avance temporal en tiempo real</b> que avanza dinámicamente según el reloj, mostrando el porcentaje transcurrido y avisando de plazos próximos a expirar.
+          </p>
+          <ul class="guide-features">
+            <li><i class="fa-solid fa-check text-green"></i> <b>Creación de Tareas con Calendario:</b> Selección de fechas/horas de inicio y vencimiento.</li>
+            <li><i class="fa-solid fa-check text-green"></i> <b>Línea de Tiempo Dinámica:</b> Barra visual que avanza en tiempo real midiendo el tiempo consumido.</li>
+            <li><i class="fa-solid fa-check text-green"></i> <b>Tablero Kanban & Gantt:</b> Organización por estados (Por hacer, En proceso, Completada).</li>
+          </ul>
+          <div class="guide-actions">
+            <a href="#tareas" class="btn btn-primary btn-sm"><i class="fa-solid fa-arrow-right"></i> Ir a Gestión de Tareas</a>
+            <button class="btn btn-secondary btn-sm" onclick="openModal('modalCreateTask')"><i class="fa-solid fa-plus"></i> Crear Tarea</button>
+          </div>
+        </article>
+
+        <!-- GUÍA CANALES Y VOZ -->
+        <article class="guide-card channels-card">
+          <div class="guide-head">
+            <div class="icon-header chat-icon">
+              <i class="fa-solid fa-headset"></i>
+            </div>
+            <div>
+              <h3>Canales y Voz</h3>
+              <span class="guide-tag"><i class="fa-brands fa-discord"></i> Salas de Voz, Vídeo y Chat estilo Discord</span>
+            </div>
+          </div>
+          <p class="guide-desc">
+            Plataforma de comunicación en tiempo real inspirada en Discord. Los equipos pueden crear servidores específicos para cada proyecto, organizar canales de texto para debatir temas clave y conectarse a salas de voz o llamadas grupales. Dispone de soporte para micrófono (mute/unmute), cámara web real o simulada, compartición de pantalla para reviews y un chat de texto sincronizado donde vincular tareas y notas de trabajo en vivo.
+          </p>
+          <ul class="guide-features">
+            <li><i class="fa-solid fa-check text-green"></i> <b>Servidores y Canales:</b> Creación de servidores independientes con canales de texto y voz.</li>
+            <li><i class="fa-solid fa-check text-green"></i> <b>Llamadas con Cámara y Voz:</b> Conexión interactiva, vídeo WebRTC y compartición de pantalla.</li>
+            <li><i class="fa-solid fa-check text-green"></i> <b>Chat de Flujo de Trabajo:</b> Mensajería en tiempo real y vinculación de tareas del proyecto.</li>
+          </ul>
+          <div class="guide-actions">
+            <a href="#canales" class="btn btn-primary btn-sm"><i class="fa-solid fa-arrow-right"></i> Ir a Canales y Voz</a>
+            <button class="btn btn-secondary btn-sm" onclick="openModal('modalCreateServer')"><i class="fa-solid fa-plus"></i> Crear Servidor / Llamada</button>
+          </div>
+        </article>
+
+        <!-- GUÍA FLUJO DE TRABAJO -->
+        <article class="guide-card workflow-card">
+          <div class="guide-head">
+            <div class="icon-header workflow-icon">
+              <i class="fa-solid fa-diagram-project"></i>
+            </div>
+            <div>
+              <h3>Flujo de Trabajo</h3>
+              <span class="guide-tag"><i class="fa-solid fa-timeline"></i> Trazabilidad, Auditoría y Progreso Global</span>
+            </div>
+          </div>
+          <p class="guide-desc">
+            Centro de control y seguimiento integral que permite visualizar el flujo de trabajo realizado conforme se van completando tareas, incorporando talento y tomando decisiones en las llamadas. Presenta un pipeline visual con las etapas del proyecto, indicadores clave de salud (KPIs), métricas de productividad y un registro de auditoría en vivo (Audit Log) que almacena cronológicamente cada acción ejecutada en TeamUp.
+          </p>
+          <ul class="guide-features">
+            <li><i class="fa-solid fa-check text-green"></i> <b>Pipeline por Fases:</b> Seguimiento del ciclo de vida (Ideación ➔ Planificación ➔ Ejecución ➔ Entrega).</li>
+            <li><i class="fa-solid fa-check text-green"></i> <b>Feed de Actividad en Tiempo Real:</b> Registro cronológico automático de todas las acciones.</li>
+            <li><i class="fa-solid fa-check text-green"></i> <b>Métricas de Rendimiento:</b> Tasa de finalización, tiempo invertido y horas de colaboración.</li>
+          </ul>
+          <div class="guide-actions">
+            <a href="#flujo" class="btn btn-primary btn-sm"><i class="fa-solid fa-arrow-right"></i> Ver Flujo de Trabajo</a>
+          </div>
+        </article>
+      </div>
+
+      <!-- BANNER DEL FLUJO DE TRABAJO ARTICULADO -->
+      <div class="workflow-pipeline-banner">
+        <h3><i class="fa-solid fa-arrows-spin"></i> Cómo funciona el flujo de trabajo articulado en TeamUp</h3>
+        <p class="text-muted" style="font-size:0.9rem; margin-top:0.35rem;">
+          Las 4 secciones trabajan de manera continua y conectada durante todo el desarrollo de tu proyecto:
+        </p>
+
+        <div class="pipeline-steps">
+          <div class="pipeline-step">
+            <div class="step-num">1</div>
+            <div class="step-info">
+              <b>Recluta Talento</b>
+              <small>Añade y contacta miembros en Red</small>
+            </div>
+          </div>
+          <i class="fa-solid fa-chevron-right pipeline-arrow"></i>
+          <div class="pipeline-step">
+            <div class="step-num">2</div>
+            <div class="step-info">
+              <b>Crea Tareas y Fechas</b>
+              <small>Calendario y avance temporal</small>
+            </div>
+          </div>
+          <i class="fa-solid fa-chevron-right pipeline-arrow"></i>
+          <div class="pipeline-step">
+            <div class="step-num">3</div>
+            <div class="step-info">
+              <b>Coordina en Canales</b>
+              <small>Llamadas de voz, vídeo y chat</small>
+            </div>
+          </div>
+          <i class="fa-solid fa-chevron-right pipeline-arrow"></i>
+          <div class="pipeline-step">
+            <div class="step-num">4</div>
+            <div class="step-info">
+              <b>Monitorea el Flujo</b>
+              <small>Trazabilidad y entregas en tiempo real</small>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== SECCIÓN: RED & TALENTO ==================== -->
+    <section id="red" class="page-view" data-page="red" hidden>
+      <div class="page-hero">
+        <div class="page-hero-left">
+          <div class="icon-header talent-icon">
+            <i class="fa-solid fa-user-gear"></i>
+          </div>
+          <div>
+            <span class="badge badge-green"><i class="fa-brands fa-linkedin"></i> Networking Profesional & Reclutamiento</span>
+            <h1>Red & Talento</h1>
+            <p>Descubre perfiles profesionales, busca talentos por capacidades técnicas clave, añade nuevos integrantes a la red y envía solicitudes formales de contacto para colaborar en tus proyectos.</p>
+          </div>
+        </div>
+        <div>
+          <button class="btn btn-primary" onclick="openModal('modalAddTalent')">
+            <i class="fa-solid fa-user-plus"></i> Añadir Persona
+          </button>
+        </div>
+      </div>
+
+      <!-- Barra de herramientas de talento -->
+      <div class="talent-toolbar">
+        <div class="filter-tabs" id="talentFilterTabs">
+          <button class="filter-tab active" data-category="all">Todos (<span id="countAllTalents">0</span>)</button>
+          <button class="filter-tab" data-category="dev">Desarrollo</button>
+          <button class="filter-tab" data-category="design">Diseño & UX</button>
+          <button class="filter-tab" data-category="management">Gestión & Datos</button>
+          <button class="filter-tab" data-category="contacted">Solicitudes Enviadas (<span id="countContactedTalents">0</span>)</button>
+        </div>
+
+        <div class="search-box" style="max-width: 320px;">
+          <i class="fa-solid fa-magnifying-glass"></i>
+          <input type="text" id="talentSearchInput" placeholder="Filtrar por nombre, rol o skill...">
+        </div>
+      </div>
+
+      <!-- Grid de perfiles de talento -->
+      <div class="talent-grid" id="talentGrid">
+        <!-- Generado dinámicamente en app.js -->
+      </div>
+    </section>
+
+    <!-- ==================== SECCIÓN: GESTIÓN DE TAREAS ==================== -->
+    <section id="tareas" class="page-view" data-page="tareas" hidden>
+      <div class="page-hero">
+        <div class="page-hero-left">
+          <div class="icon-header kanban-icon">
+            <i class="fa-solid fa-chart-kanban"></i>
+          </div>
+          <div>
+            <span class="badge badge-blue"><i class="fa-solid fa-calendar-check"></i> Planificación Ágil & Seguimiento Temporal</span>
+            <h1>Gestión de Tareas</h1>
+            <p>Crea tareas con fecha y hora de calendario. Cada tarjeta incluye una <b>línea de avance temporal en tiempo real</b> que avanza automáticamente midiendo el tiempo consumido respecto a la fecha límite.</p>
+          </div>
+        </div>
+        <div>
+          <button class="btn btn-primary" onclick="openModal('modalCreateTask')">
+            <i class="fa-solid fa-plus"></i> Crear Nueva Tarea
+          </button>
+        </div>
+      </div>
+
+      <!-- Barra de herramientas de tareas -->
+      <div class="tasks-toolbar">
+        <div class="tasks-view-switch">
+          <button class="view-btn active" id="btnViewKanban" onclick="switchTaskView('kanban')">
+            <i class="fa-solid fa-table-columns"></i> Tablero Kanban
+          </button>
+          <button class="view-btn" id="btnViewGantt" onclick="switchTaskView('gantt')">
+            <i class="fa-solid fa-timeline"></i> Cronograma & Línea Temporal
+          </button>
+        </div>
+
+        <div class="top-actions">
+          <span class="badge badge-purple" id="liveClockBadge"><i class="fa-regular fa-clock"></i> Hora actual: Sincronizada</span>
+          <select id="taskFilterPriority" class="btn btn-secondary btn-sm" style="background:var(--bg-card); color:var(--text-main); border:1px solid var(--border-color); outline:none;">
+            <option value="all">Todas las prioridades</option>
+            <option value="urgente">Urgente</option>
+            <option value="alta">Alta</option>
+            <option value="media">Media</option>
+            <option value="baja">Baja</option>
+          </select>
+        </div>
+      </div>
+
+      <!-- Vista 1: Tablero Kanban -->
+      <div class="kanban-board" id="kanbanBoard">
+        <!-- Columna: Por Hacer -->
+        <div class="kanban-column" id="colTodo">
+          <div class="column-header">
+            <h3><i class="fa-regular fa-circle" style="color:#94a3b8;"></i> Por Hacer</h3>
+            <span class="column-count" id="countTodo">0</span>
+          </div>
+          <div class="kanban-cards" id="cardsTodo"></div>
+        </div>
+
+        <!-- Columna: En Proceso -->
+        <div class="kanban-column" id="colInProgress">
+          <div class="column-header">
+            <h3><i class="fa-solid fa-spinner fa-spin" style="color:#60a5fa;"></i> En Proceso</h3>
+            <span class="column-count" id="countInProgress">0</span>
+          </div>
+          <div class="kanban-cards" id="cardsInProgress"></div>
+        </div>
+
+        <!-- Columna: Completadas -->
+        <div class="kanban-column" id="colDone">
+          <div class="column-header">
+            <h3><i class="fa-solid fa-circle-check" style="color:#34d399;"></i> Completadas</h3>
+            <span class="column-count" id="countDone">0</span>
+          </div>
+          <div class="kanban-cards" id="cardsDone"></div>
+        </div>
+      </div>
+
+      <!-- Vista 2: Cronograma / Calendario Gantt -->
+      <div class="gantt-view-container" id="ganttContainer" style="display: none;">
+        <div class="gantt-header">
+          <div>
+            <h3><i class="fa-solid fa-timeline"></i> Cronograma Temporal de Tareas</h3>
+            <p class="text-muted" style="font-size:0.85rem;">Visualización continua del tiempo de calendario y el avance dinámico de cada entrega.</p>
+          </div>
+          <span class="badge badge-green"><i class="fa-solid fa-wave-square"></i> Motor de Tiempo Activo</span>
+        </div>
+        <div class="gantt-tasks-list" id="ganttTasksList"></div>
+      </div>
+    </section>
+
+    <!-- ==================== SECCIÓN: CANALES Y VOZ ==================== -->
+    <section id="canales" class="page-view" data-page="canales" hidden>
+      <div class="page-hero">
+        <div class="page-hero-left">
+          <div class="icon-header chat-icon">
+            <i class="fa-solid fa-headset"></i>
+          </div>
+          <div>
+            <span class="badge badge-purple"><i class="fa-brands fa-discord"></i> Servidores & Canales de Voz y Texto estilo Discord</span>
+            <h1>Canales y Voz</h1>
+            <p>Crea servidores para tus proyectos o inicia salas de llamada en vivo. Conéctate con voz y cámara web, comparte pantalla y lleva el flujo de trabajo interactivo mediante el chat de texto con enlace directo a tareas.</p>
+          </div>
+        </div>
+        <div>
+          <button class="btn btn-primary" onclick="openModal('modalCreateServer')">
+            <i class="fa-solid fa-plus"></i> Crear Servidor / Llamada
+          </button>
+        </div>
+      </div>
+
+      <!-- Interfaz estilo Discord -->
+      <div class="discord-container">
+        <!-- Rail de Servidores (columna extrema izquierda) -->
+        <div class="discord-servers" id="discordServersRail">
+          <!-- Servidores generados dinámicamente -->
+          <div class="server-separator"></div>
+          <div class="server-icon add-server" onclick="openModal('modalCreateServer')" title="Crear un Servidor o Llamada">
+            <i class="fa-solid fa-plus"></i>
+          </div>
+        </div>
+
+        <!-- Sidebar de Canales del Servidor Activo -->
+        <div class="discord-channels">
+          <div class="server-header">
+            <span id="activeServerName">TeamUp Core</span>
+            <div class="server-header-actions">
+              <button class="deck-btn" onclick="openModal('modalCreateChannel')" title="Añadir Canal o Sala"><i class="fa-solid fa-plus"></i></button>
+            </div>
+          </div>
+
+          <div class="channel-categories">
+            <!-- Canales de Texto -->
+            <div>
+              <div class="channel-cat-title">
+                <span>Canales de Texto</span>
+                <button onclick="openModal('modalCreateChannel', 'text')" title="Crear Canal de Texto"><i class="fa-solid fa-plus"></i></button>
+              </div>
+              <div id="textChannelsList">
+                <!-- Canales de texto -->
+              </div>
+            </div>
+
+            <!-- Canales de Voz / Salas de Llamada -->
+            <div>
+              <div class="channel-cat-title">
+                <span>Salas de Voz & Llamadas</span>
+                <button onclick="openModal('modalCreateChannel', 'voice')" title="Crear Sala de Voz"><i class="fa-solid fa-plus"></i></button>
+              </div>
+              <div id="voiceChannelsList">
+                <!-- Canales de voz -->
+              </div>
+            </div>
+          </div>
+
+          <!-- User Deck inferior (estilo Discord) -->
+          <div class="discord-user-deck">
+            <div class="user-deck-info">
+              <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=100&q=80" alt="Avatar" class="user-deck-avatar">
+              <div class="user-deck-name">
+                <b>Tú (Alex García)</b>
+                <small id="userVoiceStatusText">En línea</small>
+              </div>
+            </div>
+            <div class="user-deck-controls">
+              <button class="deck-btn" id="btnDeckMic" onclick="toggleMuteMic()" title="Silenciar Micrófono"><i class="fa-solid fa-microphone"></i></button>
+              <button class="deck-btn" id="btnDeckDeaf" onclick="toggleDeafen()" title="Ensordecer Altavoces"><i class="fa-solid fa-headphones"></i></button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Área Principal de Discord (Llamada de voz y Chat de flujo) -->
+        <div class="discord-main-area">
+          <!-- Topbar del canal activo -->
+          <div class="discord-channel-topbar">
+            <div class="topbar-channel-title" id="activeChannelHeader">
+              <i class="fa-solid fa-hashtag"></i>
+              <span id="activeChannelTitle">general</span>
+            </div>
+            <div class="topbar-call-status">
+              <button class="btn btn-success btn-sm" id="btnJoinVoiceCall" onclick="connectToVoiceCall()">
+                <i class="fa-solid fa-phone"></i> Conectarse a Llamada
+              </button>
+              <button class="btn btn-secondary btn-sm" onclick="openShareTaskModal()" title="Vincular Tarea al Chat">
+                <i class="fa-solid fa-link"></i> Compartir Tarea
+              </button>
+            </div>
+          </div>
+
+          <!-- Escenario de Llamada Activa (Voz, Cámara y Pantalla) -->
+          <div class="discord-call-stage" id="callStage" style="display: none;">
+            <div class="call-participants-grid" id="callParticipantsGrid">
+              <!-- Participante local -->
+              <div class="call-participant-box" id="localParticipantBox">
+                <video id="localVideoFeed" class="participant-video-stream" autoplay playsinline muted style="display: none;"></video>
+                <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=150&q=80" class="participant-avatar-large" id="localAvatarImg" alt="Tú">
+                <div class="participant-name-badge">
+                  <i class="fa-solid fa-microphone" id="localMicBadgeIcon"></i>
+                  <span>Tú (Alex García)</span>
+                </div>
+              </div>
+
+              <!-- Participantes remotos (simulados en la llamada) -->
+              <div class="call-participant-box speaking" id="remoteUser1">
+                <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=150&q=80" class="participant-avatar-large" alt="Elena Morales">
+                <div class="participant-name-badge">
+                  <i class="fa-solid fa-microphone text-green"></i>
+                  <span>Elena Morales</span>
+                </div>
+              </div>
+
+              <div class="call-participant-box" id="remoteUser2">
+                <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=150&q=80" class="participant-avatar-large" alt="Carlos Ruiz">
+                <div class="participant-name-badge">
+                  <i class="fa-solid fa-microphone text-muted"></i>
+                  <span>Carlos Ruiz</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Controles flotantes de la llamada -->
+            <div class="call-dock-controls">
+              <button class="dock-action-btn" id="btnCallToggleMic" onclick="toggleMuteMic()" title="Micrófono"><i class="fa-solid fa-microphone"></i></button>
+              <button class="dock-action-btn" id="btnCallToggleCam" onclick="toggleCamera()" title="Encender / Apagar Cámara"><i class="fa-solid fa-video"></i></button>
+              <button class="dock-action-btn" id="btnCallToggleScreen" onclick="toggleScreenShare()" title="Compartir Pantalla"><i class="fa-solid fa-display"></i></button>
+              <button class="dock-action-btn danger" onclick="disconnectVoiceCall()" title="Desconectar de la llamada"><i class="fa-solid fa-phone-slash"></i></button>
+            </div>
+          </div>
+
+          <!-- Chat de texto para llevar el flujo de trabajo -->
+          <div class="discord-chat-messages" id="chatMessagesFeed">
+            <!-- Mensajes insertados dinámicamente -->
+          </div>
+
+          <!-- Barra de entrada de texto -->
+          <div class="discord-chat-input-bar">
+            <div class="chat-input-wrapper">
+              <button class="chat-quick-btn" onclick="openShareTaskModal()" title="Vincular Tarea de Trabajo"><i class="fa-solid fa-circle-plus"></i></button>
+              <input type="text" id="chatMessageInput" placeholder="Enviar mensaje a #general o vincular avance del flujo...">
+              <button class="chat-quick-btn" id="btnSendChatMsg" title="Enviar Mensaje"><i class="fa-solid fa-paper-plane"></i></button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== SECCIÓN: FLUJO DE TRABAJO ==================== -->
+    <section id="flujo" class="page-view" data-page="flujo" hidden>
+      <div class="page-hero">
+        <div class="page-hero-left">
+          <div class="icon-header workflow-icon">
+            <i class="fa-solid fa-diagram-project"></i>
+          </div>
+          <div>
+            <span class="badge badge-amber"><i class="fa-solid fa-chart-line"></i> Monitorización Global del Proyecto</span>
+            <h1>Flujo de Trabajo</h1>
+            <p>Observa el flujo de trabajo realizado conforme se van creando y completando tareas, contactando talentos y colaborando en canales. Registro cronológico (Audit Log) y estado global del proyecto en tiempo real.</p>
+          </div>
+        </div>
+        <div>
+          <button class="btn btn-secondary" onclick="exportWorkflowReport()">
+            <i class="fa-solid fa-download"></i> Exportar Resumen del Flujo
+          </button>
+        </div>
+      </div>
+
+      <!-- Tarjetas de Métricas de Rendimiento del Flujo -->
+      <div class="workflow-metrics-grid">
+        <div class="metric-card">
+          <div class="metric-icon" style="background:rgba(99, 102, 241, 0.15); color:var(--primary);">
+            <i class="fa-solid fa-chart-pie"></i>
+          </div>
+          <div class="metric-data">
+            <h4 id="wfMetricCompletion">60%</h4>
+            <span>Tasa de Finalización de Tareas</span>
+          </div>
+        </div>
+
+        <div class="metric-card">
+          <div class="metric-icon" style="background:rgba(16, 185, 129, 0.15); color:var(--accent-green);">
+            <i class="fa-solid fa-check-double"></i>
+          </div>
+          <div class="metric-data">
+            <h4 id="wfMetricTasksDone">3 / 5</h4>
+            <span>Tareas Completadas con Éxito</span>
+          </div>
+        </div>
+
+        <div class="metric-card">
+          <div class="metric-icon" style="background:rgba(6, 182, 212, 0.15); color:var(--accent-blue);">
+            <i class="fa-solid fa-user-check"></i>
+          </div>
+          <div class="metric-data">
+            <h4 id="wfMetricRequests">3 Activas</h4>
+            <span>Solicitudes de Contacto Enviadas</span>
+          </div>
+        </div>
+
+        <div class="metric-card">
+          <div class="metric-icon" style="background:rgba(139, 92, 246, 0.15); color:var(--accent-purple);">
+            <i class="fa-solid fa-headset"></i>
+          </div>
+          <div class="metric-data">
+            <h4 id="wfMetricCallTime">1h 45m</h4>
+            <span>Tiempo de Colaboración en Canales</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Pipeline de Ciclo de Vida del Proyecto -->
+      <div class="workflow-lifecycle-box">
+        <div class="section-header" style="margin-bottom: 0.5rem;">
+          <div>
+            <h3><i class="fa-solid fa-list-check"></i> Pipeline de Etapas del Flujo de Trabajo</h3>
+            <p class="text-muted" style="font-size:0.88rem;">Progreso por fases conforme avanza el equipo:</p>
+          </div>
+          <span class="badge badge-green" id="wfHealthBadge"><i class="fa-solid fa-heart-pulse"></i> Salud del Flujo: 96% Óptimo</span>
+        </div>
+
+        <div class="lifecycle-stages">
+          <div class="stage-card done">
+            <span class="stage-badge badge-green"><i class="fa-solid fa-check"></i> Fase 1 · Completada</span>
+            <h4>Definición & Talento</h4>
+            <p>Identificación de requerimientos técnicos, registro de perfiles y solicitudes de reclutamiento de equipo.</p>
+          </div>
+
+          <div class="stage-card active">
+            <span class="stage-badge badge-blue"><i class="fa-solid fa-spinner fa-spin"></i> Fase 2 · En Progreso</span>
+            <h4>Planificación & Calendario</h4>
+            <p>Creación de tareas Kanban, fijación de fechas de inicio/fin y seguimiento mediante líneas de tiempo dinámicas.</p>
+          </div>
+
+          <div class="stage-card active">
+            <span class="stage-badge badge-purple"><i class="fa-solid fa-headset"></i> Fase 3 · Activa</span>
+            <h4>Coordinación & Voz</h4>
+            <p>Debates en canales de texto, daily standups en salas de voz y compartición de código y diseños en vivo.</p>
+          </div>
+
+          <div class="stage-card">
+            <span class="stage-badge badge-amber"><i class="fa-regular fa-clock"></i> Fase 4 · Próxima</span>
+            <h4>Entrega & Cierre</h4>
+            <p>Auditoría de tareas cumplidas en plazo, consolidación de entregables y despliegue final del proyecto.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Feed Cronológico de Auditoría / Flujo en Vivo -->
+      <div class="workflow-log-section">
+        <div class="workflow-log-head">
+          <div>
+            <h3><i class="fa-solid fa-clock-rotate-left"></i> Registro Cronológico del Flujo Realizado (Audit Log)</h3>
+            <p class="text-muted" style="font-size:0.88rem;">Trazabilidad en tiempo real de cada tarea completada, persona contactada o reunión realizada:</p>
+          </div>
+          <div class="filter-tabs">
+            <button class="filter-tab active" onclick="filterWorkflowLogs('all')">Todos</button>
+            <button class="filter-tab" onclick="filterWorkflowLogs('task')">Tareas</button>
+            <button class="filter-tab" onclick="filterWorkflowLogs('talent')">Talento</button>
+            <button class="filter-tab" onclick="filterWorkflowLogs('voice')">Comunicaciones</button>
+          </div>
+        </div>
+
+        <div class="workflow-timeline" id="workflowTimelineContainer">
+          <!-- Ítems del log generados dinámicamente -->
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ==================== MODALES DEL SISTEMA ==================== -->
+
+  <!-- Modal 1: Añadir Talento / Persona -->
+  <div class="modal-overlay" id="modalAddTalent">
+    <div class="modal-container">
+      <div class="modal-header">
+        <h3><i class="fa-solid fa-user-plus text-green"></i> Añadir Persona a la Red</h3>
+        <button class="modal-close-btn" onclick="closeModal('modalAddTalent')">&times;</button>
+      </div>
+      <div class="modal-body">
+        <div class="form-group">
+          <label>Nombre y Apellidos *</label>
+          <input type="text" id="inputTalentName" placeholder="Ej. Valentina Morales" required>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label>Rol / Especialidad *</label>
+            <input type="text" id="inputTalentRole" placeholder="Ej. Full Stack Engineer" required>
+          </div>
+          <div class="form-group">
+            <label>Categoría</label>
+            <select id="inputTalentCategory">
+              <option value="dev">Desarrollo Web / Móvil</option>
+              <option value="design">Diseño UI / UX</option>
+              <option value="management">Gestión / Datos / QA</option>
+            </select>
+          </div>
+        </div>
+        <div class="form-group">
+          <label>Descripción / Biografía Profesional *</label>
+          <textarea id="inputTalentBio" rows="3" placeholder="Describe la experiencia, proyectos destacados y propuesta de valor..." required></textarea>
+        </div>
+        <div class="form-group">
+          <label>Habilidades Técnicas (separadas por comas) *</label>
+          <input type="text" id="inputTalentSkills" placeholder="Ej. React, Node.js, TypeScript, Docker">
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label>Disponibilidad</label>
+            <select id="inputTalentAvailability">
+              <option value="Tiempo Completo">Tiempo Completo</option>
+              <option value="Tiempo Parcial">Tiempo Parcial</option>
+              <option value="Freelance / Proyecto">Freelance / Proyecto</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label>Enlace Portfolio / GitHub</label>
+            <input type="url" id="inputTalentLink" placeholder="https://github.com/usuario">
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-secondary" onclick="closeModal('modalAddTalent')">Cancelar</button>
+        <button class="btn btn-primary" id="btnSaveTalent"><i class="fa-solid fa-check"></i> Guardar Persona</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal 2: Mandar Solicitud de Contacto -->
+  <div class="modal-overlay" id="modalContactRequest">
+    <div class="modal-container">
+      <div class="modal-header">
+        <h3><i class="fa-solid fa-envelope-open-text" style="color:var(--primary);"></i> Enviar Solicitud de Contacto</h3>
+        <button class="modal-close-btn" onclick="closeModal('modalContactRequest')">&times;</button>
+      </div>
+      <div class="modal-body">
+        <input type="hidden" id="contactTargetTalentId">
+        <p style="font-size:0.9rem; color:var(--text-muted);">
+          Vas a enviar una solicitud formal de colaboración a <b id="contactTargetTalentName" style="color:#fff;">Nombre</b>.
+        </p>
+        <div class="form-group">
+          <label>Asunto del Proyecto / Motivo</label>
+          <input type="text" id="contactSubjectInput" value="Colaboración en el desarrollo del proyecto TeamUp">
+        </div>
+        <div class="form-group">
+          <label>Mensaje Personalizado</label>
+          <textarea id="contactMessageInput" rows="4">¡Hola! He visto tu perfil en la red de talento de TeamUp y nos encantaría contar con tus capacidades para sumarte al equipo del proyecto. ¿Podemos coordinar una llamada?</textarea>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-secondary" onclick="closeModal('modalContactRequest')">Cancelar</button>
+        <button class="btn btn-primary" id="btnSendContactConfirm"><i class="fa-solid fa-paper-plane"></i> Mandar Solicitud</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal 3: Crear Tarea (con Calendario y Línea de Tiempo) -->
+  <div class="modal-overlay" id="modalCreateTask">
+    <div class="modal-container">
+      <div class="modal-header">
+        <h3><i class="fa-solid fa-calendar-plus text-blue"></i> Crear Nueva Tarea</h3>
+        <button class="modal-close-btn" onclick="closeModal('modalCreateTask')">&times;</button>
+      </div>
+      <div class="modal-body">
+        <div class="form-group">
+          <label>Nombre de la Tarea *</label>
+          <input type="text" id="inputTaskTitle" placeholder="Ej. Implementar autenticación con JWT y WebSockets" required>
+        </div>
+        <div class="form-group">
+          <label>Descripción y Criterios de Aceptación</label>
+          <textarea id="inputTaskDesc" rows="2" placeholder="Detalles de la tarea, entregables esperados..."></textarea>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label>Asignar a Miembro</label>
+            <select id="inputTaskAssignee">
+              <!-- Rellenado dinámicamente con los talentos -->
+            </select>
+          </div>
+          <div class="form-group">
+            <label>Prioridad</label>
+            <select id="inputTaskPriority">
+              <option value="baja">Baja</option>
+              <option value="media" selected>Media</option>
+              <option value="alta">Alta</option>
+              <option value="urgente">Urgente</option>
+            </select>
+          </div>
+        </div>
+
+        <div style="background:rgba(0,0,0,0.25); border:1px solid var(--border-light); border-radius:var(--radius-sm); padding:0.9rem;">
+          <label style="font-size:0.84rem; font-weight:700; color:#a5b4fc; display:block; margin-bottom:0.6rem;">
+            <i class="fa-regular fa-calendar-days"></i> Tiempo tipo Calendario (Línea de Avance Temporal)
+          </label>
+          <div class="form-row">
+            <div class="form-group">
+              <label>Fecha y Hora de Inicio</label>
+              <input type="datetime-local" id="inputTaskStart" required>
+            </div>
+            <div class="form-group">
+              <label>Fecha y Hora de Fin / Deadline</label>
+              <input type="datetime-local" id="inputTaskEnd" required>
+            </div>
+          </div>
+          <div style="display:flex; gap:0.5rem; margin-top:0.6rem; flex-wrap:wrap;">
+            <button type="button" class="btn btn-secondary btn-sm" onclick="setQuickTaskDates(24)">+ 24 Horas</button>
+            <button type="button" class="btn btn-secondary btn-sm" onclick="setQuickTaskDates(72)">+ 3 Días</button>
+            <button type="button" class="btn btn-secondary btn-sm" onclick="setQuickTaskDates(168)">+ 7 Días (Sprint)</button>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label>Estado Inicial</label>
+          <select id="inputTaskStatus">
+            <option value="todo" selected>Por Hacer</option>
+            <option value="in-progress">En Proceso</option>
+            <option value="done">Completada</option>
+          </select>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-secondary" onclick="closeModal('modalCreateTask')">Cancelar</button>
+        <button class="btn btn-primary" id="btnSaveTask"><i class="fa-solid fa-plus"></i> Crear Tarea</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal 4: Crear Servidor o Llamada -->
+  <div class="modal-overlay" id="modalCreateServer">
+    <div class="modal-container">
+      <div class="modal-header">
+        <h3><i class="fa-brands fa-discord" style="color:var(--accent-purple);"></i> Crear Nuevo Servidor o Llamada</h3>
+        <button class="modal-close-btn" onclick="closeModal('modalCreateServer')">&times;</button>
+      </div>
+      <div class="modal-body">
+        <div class="form-group">
+          <label>Nombre del Servidor o Espacio de Trabajo *</label>
+          <input type="text" id="inputServerName" placeholder="Ej. Proyecto Alpha Sprint 2" required>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label>Iniciales / Icono (2-3 letras)</label>
+            <input type="text" id="inputServerIcon" placeholder="PA" maxlength="3">
+          </div>
+          <div class="form-group">
+            <label>Tipo de Espacio</label>
+            <select id="inputServerType">
+              <option value="project">Proyecto / Equipo General</option>
+              <option value="call">Sala de Llamada Rápida</option>
+              <option value="study">Mesa de Estudio y TFG</option>
+            </select>
+          </div>
+        </div>
+        <div class="form-group">
+          <label>Descripción del Espacio</label>
+          <input type="text" id="inputServerDesc" placeholder="Canales de trabajo, coordinación y llamadas en vivo">
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-secondary" onclick="closeModal('modalCreateServer')">Cancelar</button>
+        <button class="btn btn-primary" id="btnSaveServer"><i class="fa-solid fa-plus"></i> Crear Servidor</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal 5: Crear Canal / Sala -->
+  <div class="modal-overlay" id="modalCreateChannel">
+    <div class="modal-container">
+      <div class="modal-header">
+        <h3><i class="fa-solid fa-plus"></i> Crear Canal o Sala</h3>
+        <button class="modal-close-btn" onclick="closeModal('modalCreateChannel')">&times;</button>
+      </div>
+      <div class="modal-body">
+        <div class="form-group">
+          <label>Tipo de Canal</label>
+          <select id="inputChannelType">
+            <option value="text"># Canal de Texto</option>
+            <option value="voice">🔊 Sala de Voz / Videollamada</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>Nombre del Canal *</label>
+          <input type="text" id="inputChannelName" placeholder="ej. feedback-diseno o daily-standup" required>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-secondary" onclick="closeModal('modalCreateChannel')">Cancelar</button>
+        <button class="btn btn-primary" id="btnSaveChannel"><i class="fa-solid fa-check"></i> Crear Canal</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal 6: Compartir Tarea en Chat de Flujo -->
+  <div class="modal-overlay" id="modalShareTask">
+    <div class="modal-container">
+      <div class="modal-header">
+        <h3><i class="fa-solid fa-link" style="color:var(--primary);"></i> Enlazar Tarea en el Flujo de Chat</h3>
+        <button class="modal-close-btn" onclick="closeModal('modalShareTask')">&times;</button>
+      </div>
+      <div class="modal-body">
+        <p style="font-size:0.88rem; color:var(--text-muted);">
+          Selecciona una tarea activa del tablero para compartir su tarjeta con línea de avance temporal en el chat del canal:
+        </p>
+        <div class="form-group">
+          <label>Seleccionar Tarea</label>
+          <select id="selectTaskToShare">
+            <!-- Rellenado dinámicamente -->
+          </select>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-secondary" onclick="closeModal('modalShareTask')">Cancelar</button>
+        <button class="btn btn-primary" id="btnConfirmShareTask"><i class="fa-solid fa-share"></i> Compartir en Chat</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Contenedor flotante de Toast Notifications -->
+  <div class="toast-container" id="toastContainer"></div>
+
+  <script src="app.js"></script>
+</body>
+
+</html>
