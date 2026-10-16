@@ -1,4 +1,4 @@
-# Team up
+# Team up 🚀
 Plataforma web para la gestión de equipos, capacitación técnica y reclutamiento de talento.
 
 ## Arranque
